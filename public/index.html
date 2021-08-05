@@ -24,6 +24,17 @@
         socket.on('retorno', function(payload){
             console.log("Retorno: ", payload['contenido']);
         });
+		
+		socket.on('nuevo-mensaje', function(payload){
+			var nombre= payload['nombre'];
+			var mensaje= payload['mensaje'];
+			console.log('Mensaje de '+nombre+ ': '+mensaje);
+		});
+
+        socket.on('active-bands', function(bands){
+            console.clear();
+            console.table(bands);
+        });
     </script>
 </body>
 </html>
